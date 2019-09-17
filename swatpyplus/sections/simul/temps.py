@@ -1,5 +1,5 @@
 from swatpyplus.fichier import Fichier
-from swatpyplus.variables import VarEntier, VarCatég
+from swatpyplus.variables import VarEntier, VarCatégo
 
 
 class JourInitial(VarEntier):
@@ -22,7 +22,7 @@ class AnnéeFinale(VarEntier):
     cod = 'YEAR_END'
 
 
-class Incrément(VarCatég):
+class Incrément(VarCatégo):
     nom = 'Incrément'
     cod = 'STEP'
     valeurs = [0, 1, 24, 96, 1440]
