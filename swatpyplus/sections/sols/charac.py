@@ -1,4 +1,5 @@
-from swatpyplus.fichier import FichierDivisionsAlignées
+from swatpyplus.div import DivisionPartitionAlignée
+from swatpyplus.fichier import Fichier
 from swatpyplus.variables import VarEntier, VarTexte, VarCatégo, VarRéel
 
 
@@ -111,14 +112,19 @@ class pH(VarRéel):
 vars_entête = [
     Nom, NombreCouches, GroupeHydro, ProfondeurMaxRacines, ExclusionAnions, VolumeMaxFissures, Texture
 ]
-vars_division = [
+vars_secondaires = [
     Profondeur, DensitéApparente, CapacitéEauDisponible, ConductivitéHydraulique, CarboneOrganique, Argile, Limon,
     Sable, Roches, Albédo, Érodabilité, ConductivitéÉlectrique, Calcium, pH
 ]
 
 
-class CharacSols(FichierDivisionsAlignées):
-    nom = 'soils.sol'
-    var_lignes_division = NombreCouches
-    variables = [*vars_division, *vars_entête]
+class DivisionCharacSols(DivisionPartitionAlignée):
     vars_entête = vars_entête
+    vars_secondaires = vars_secondaires
+    var_n_lignes = NombreCouches
+
+
+class CharacSols(Fichier):
+    nom = 'soils.sol'
+    variables = [*vars_secondaires, *vars_entête]
+    division = DivisionCharacSols

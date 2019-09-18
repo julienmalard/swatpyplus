@@ -67,7 +67,7 @@ class ConexHydro(VarOuiNon):
     cod = 'HDYCON'
 
 
-class CourveDébit(VarOuiNon):
+class CourbeDébit(VarOuiNon):
     nom = 'Impression courbe de débit'
     cod = 'FDC'
 
@@ -99,7 +99,7 @@ class MoyenneAnnuelle(VarOuiNon):
 
 vars_ = [
     AnnéesExclues, JourInitial, AnnéeInitiale, JourFinal, AnnéeFinale, Interval, AnnéesMoyenne, VSV, BD, FDC, Sol,
-    Gestion, ConexHydro, CourveDébit, Objets, Quotidienne, Mensuelle, Annuelle, MoyenneAnnuelle
+    Gestion, ConexHydro, CourbeDébit, Objets, Quotidienne, Mensuelle, Annuelle, MoyenneAnnuelle
 ]
 
 

@@ -4,5 +4,7 @@ Une librairie Python pour communiquer avec le modèle hydrologique [SWAT+](https
 ## Instalation
 `pip install swatpyplus`
 
+## Utilisation
+
 ## Autheurs
 Julien Malard (julien.malard@mail.mcgill.ca)

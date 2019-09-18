@@ -1,4 +1,4 @@
-from swatpyplus.sections.sect import Section
+from swatpyplus.sect import Section
 from .comp import Composantes
 from .compte_obj import CompteObjet
 from .impr import Imprimer

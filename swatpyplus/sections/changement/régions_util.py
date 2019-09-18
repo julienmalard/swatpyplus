@@ -1,4 +1,5 @@
-from swatpyplus.fichier import FichierDivisions
+from swatpyplus.div import DivisionPartition
+from swatpyplus.fichier import Fichier
 from swatpyplus.variables import VarTexte, VarEntier, VarRéel
 
 
@@ -76,14 +77,19 @@ vars_entête = [
     Nom, NombreÉléments, NumRégion
 ]
 
-vars_division = [
+vars_secondaires = [
     NomÉlément, ÉcoulementSurface, ÉcoulementLatéral, Percolation, Évapotranspiration, FluxDrains, Sédiment,
     NOrganique, POrganique, NO3, PSoluble
 ]
 
 
-class UtilisationTerritoire(FichierDivisions):
-    nom = 'ls_regions.cal'
-    var_lignes_division = NombreÉléments
-    variables = [*vars_division, *vars_entête]
+class DivisionUtilTerr(DivisionPartition):
     vars_entête = vars_entête
+    vars_secondaires = vars_secondaires
+    var_n_lignes = NombreÉléments
+
+
+class UtilisationTerritoire(Fichier):
+    nom = 'ls_regions.cal'
+    variables = [*vars_secondaires, *vars_entête]
+    division = DivisionUtilTerr

@@ -6,7 +6,7 @@ class Modèle(object):
         if os.path.isdir(fichier):
             fichier = os.path.join(fichier, 'file.cio')
         soimême.fichier = fichier
-        soimême._charger()
+        soimême._lire()
 
     def écrire(soimême, fichier=None, forcer=False):
         fichier = fichier or soimême.fichier
@@ -15,12 +15,12 @@ class Modèle(object):
         if not os.path.isdir(fichier):
             os.makedirs(fichier)
 
-    def obt_valeur(soimême, variable):
+    def obtenir_valeur(soimême, variable):
         pass
 
     def assigner_valeur(soimême):
         pass
 
-    def _charger(soimême):
+    def _lire(soimême):
         pass
 

@@ -3,6 +3,9 @@ class Variable(object):
     cod = ''
     unité = ''
 
+    def __init__(soimême, val):
+        soimême.val = val
+
 
 class VarNumérique(Variable):
     pass
