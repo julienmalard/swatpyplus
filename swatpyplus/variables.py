@@ -1,10 +1,8 @@
 class Variable(object):
     nom = ''
-    cod = ''
+    code = ''
     unité = ''
-
-    def __init__(soimême, val):
-        soimême.val = val
+    dtype = None
 
 
 class VarNumérique(Variable):
@@ -12,19 +10,20 @@ class VarNumérique(Variable):
 
 
 class VarEntier(VarNumérique):
-    pass
+    dtype = int
 
 
 class VarRéel(VarNumérique):
-    pass
+    dtype = float
 
 
 class VarCatégo(Variable):
     valeurs = []
+    dtype = str
 
 
 class VarTexte(Variable):
-    pass
+    dtype = str
 
 
 class VarOuiNon(VarCatégo):

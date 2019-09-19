@@ -8,5 +8,5 @@ setup(
     license='GNU Affero GPL v3',
     author='Julien Jean Malard',
     author_email='julien.malard@mail.mcgill.ca',
-    description='Communication avec SWAT+, en Python'
+    description='Communication avec SWAT+, en Python', install_requires=['pandas', 'numpy']
 )

@@ -1,30 +1,31 @@
+from swatpyplus.div import Division
 from swatpyplus.fichier import Fichier
 from swatpyplus.variables import VarEntier, VarCatégo
 
 
 class JourInitial(VarEntier):
     nom = 'Jour initial'
-    cod = 'DAY_START'
+    code = 'DAY_START'
 
 
 class AnnéeInitiale(VarEntier):
     nom = 'Année initiale'
-    cod = 'YEAR_START'
+    code = 'YEAR_START'
 
 
 class JourFinal(VarEntier):
     nom = 'Jour final'
-    cod = 'DAY_END'
+    code = 'DAY_END'
 
 
 class AnnéeFinale(VarEntier):
     nom = 'Année finale'
-    cod = 'YEAR_END'
+    code = 'YEAR_END'
 
 
 class Incrément(VarCatégo):
     nom = 'Incrément'
-    cod = 'STEP'
+    code = 'STEP'
     valeurs = [0, 1, 24, 96, 1440]
 
 
@@ -37,6 +38,10 @@ vars_ = [
 ]
 
 
+class DivisionTemps(Division):
+    variables = vars_
+
+
 class Temps(Fichier):
     nom = 'time.sim'
-    variables = vars_
+    division = DivisionTemps

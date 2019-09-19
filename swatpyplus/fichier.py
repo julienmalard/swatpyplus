@@ -1,15 +1,18 @@
 import os
 
-from swatpyplus.div import Division
+from swatpyplus.div import DivisionPartition
 
 
 class Fichier(object):
     nom = ''
-    variables = []
-    division = Division
+    division = NotImplemented
+    sauter_ligne = False
 
     def __init__(soimême, chemin):
-        soimême.chemin = os.path.join(chemin, soimême.nom)
+        if not chemin.endswith(soimême.nom):
+            soimême.chemin = os.path.join(chemin, soimême.nom)
+        else:
+            soimême.chemin = chemin
         soimême.titre = None
         soimême._structure = []
         soimême._lire()
@@ -23,10 +26,14 @@ class Fichier(object):
             if len(l_0) > 1:
                 soimême.titre = l_0[1]
 
+            if soimême.sauter_ligne:
+                d.readline()
+
             lignes_div = []
             for l in d.readlines():
                 if l:
                     lignes_div.append(l)
                 else:
                     soimême._structure.append(soimême.division(lignes_div))
-
+            if lignes_div:
+                soimême._structure.append(soimême.division(lignes_div))

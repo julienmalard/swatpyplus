@@ -7,4 +7,5 @@ from .temps import Temps
 
 
 class Simul(Section):
+    nom = 'simulation'
     fichiers = [Temps, Imprimer, ImprimerObjet, CompteObjet, Composantes]
