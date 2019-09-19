@@ -1,7 +1,11 @@
 import os
 
+from .sections import sections
+
 
 class Modèle(object):
+    sections = sections
+
     def __init__(soimême, fichier):
         if os.path.isdir(fichier):
             fichier = os.path.join(fichier, 'file.cio')
@@ -23,4 +27,3 @@ class Modèle(object):
 
     def _lire(soimême):
         pass
-

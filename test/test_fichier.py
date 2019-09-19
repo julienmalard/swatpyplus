@@ -14,7 +14,8 @@ class TestFichier(unittest.TestCase):
             for d in documents_compatibles(f.nom):
                 with soimême.subTest(os.path.join(os.path.split(os.path.split(d)[0])[1], f.nom)):
                     o = f(d)
-                    o
+                    dic = o.à_nojs()
+                    dic
 
 
 def documents_compatibles(nom):

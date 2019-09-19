@@ -20,6 +20,9 @@ class Fichier(object):
     def modifié(soimême):
         return any(v.modifié for v in soimême._structure)
 
+    def à_nojs(soimême):
+        return [v.à_nojs() for v in soimême._structure]
+
     def _lire(soimême):
         with open(soimême.chemin, mode='r', encoding='utf8') as d:
             l_0 = d.readline().split(':', maxsplit=1)
