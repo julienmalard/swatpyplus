@@ -10,7 +10,7 @@ class JourInitial(VarEntier):
 
 class AnnéeInitiale(VarEntier):
     nom = 'Année initiale'
-    code = 'YEAR_START'
+    code = 'YRC_START'
 
 
 class JourFinal(VarEntier):
@@ -20,7 +20,7 @@ class JourFinal(VarEntier):
 
 class AnnéeFinale(VarEntier):
     nom = 'Année finale'
-    code = 'YEAR_END'
+    code = 'YRC_END'
 
 
 class Incrément(VarCatégo):

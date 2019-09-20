@@ -33,8 +33,14 @@ class Division(object):
     @staticmethod
     def _former_données(d, variables, entête=None):
         cds = entête if entête else d[0].split()
-        cds = [c for c in cds if c in [vr.code for vr in variables]]
-        vars_ = [next(vr for vr in variables if vr.code == c) for c in cds]
+        # cds = [c for c in cds if c in [vr.code for vr in variables]]
+        vars_ = []
+        for c in cds:
+            try:
+                vars_.append(next(vr for vr in variables if vr.code.upper() == c.upper()))
+            except StopIteration:
+                raise ValueError(c)
+
         données = {vr.code: np.array(
             [l.split()[i] for l in d[0 if entête else 1:]],
             dtype=vr.dtype
@@ -65,9 +71,13 @@ class DivisionPartitionAlignée(DivisionPartition):
         ligne_entête = d[0].split()
         i = 1
         while i < len(d):
-            entête = soimême._former_données(d[i:i + 1], soimême.vars_entête, entête=ligne_entête)
+            entête = soimême._former_données(
+                d[i:i + 1], soimême.vars_entête, entête=ligne_entête[:len(soimême.vars_entête)]
+            )
             n_lignes = entête[soimême.var_n_lignes.code][0]
-            données = soimême._former_données(d[i + 1:i + n_lignes + 1], soimême.vars_données, entête=ligne_entête)
+            données = soimême._former_données(
+                d[i + 1:i + n_lignes + 1], soimême.vars_données, entête=ligne_entête[len(soimême.vars_entête):]
+            )
             i += n_lignes + 1
             struct.append({'entête': entête, 'données': données})
         return struct
