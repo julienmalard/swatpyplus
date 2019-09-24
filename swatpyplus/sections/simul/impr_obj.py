@@ -1,30 +1,31 @@
+from swatpyplus.div import Division
 from swatpyplus.fichier import Fichier
 from swatpyplus.variables import VarEntier, VarTexte
 
 
 class Numéro(VarEntier):
     nom = 'Numéro'
-    cod = 'numb'
+    code = 'numb'
 
 
 class TypeObjet(VarTexte):
     nom = "Type d'objet à imprimer"
-    cod = 'obtyp'
+    code = 'obtyp'
 
 
 class NumTypeObjet(VarEntier):
     nom = "Numéro de type d'objet"
-    cod = 'obtypno'
+    code = 'obtypno'
 
 
 class Hydrogramme(VarTexte):
     nom = "Type d'hydrogramme à imprimer"
-    cod = 'hydtyp'
+    code = 'hydtyp'
 
 
 class NomFichier(VarTexte):
     nom = "Nom du fichier du sortie"
-    cod = 'filename'
+    code = 'filename'
 
 
 vars_ = [
@@ -32,6 +33,10 @@ vars_ = [
 ]
 
 
+class DivisionImprimObj(Division):
+    variables = vars_
+
+
 class ImprimerObjet(Fichier):
     nom = 'object.prt'
-    variables = vars_
+    division = DivisionImprimObj
