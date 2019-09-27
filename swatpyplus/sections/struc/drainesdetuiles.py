@@ -1,62 +1,68 @@
+from swatpyplus.div import Division
 from swatpyplus.fichier import Fichier
 from swatpyplus.variables import VarTexte, VarRéel
 
 
 class Nom(VarTexte):
     nom = 'Nom du nutriment'
-    cod = 'NAME'
+    code = 'NAME'
 
 
 class ProfondTube(VarRéel):
     nom = "Profondeur du tube de drainage à la surface du sol"
-    cod = 'DP'
+    code = 'DP'
     unité = 'mm'
 
 
 class TempDrainer(VarRéel):
     nom = "Temps nécessaire pour drainer le sol à la capacité du champ"
-    cod = 'T_FC'
+    code = 'T_FC'
     unité = 'hrs'
 
 
 class TempLatence(VarRéel):
     nom = "Temps de latence du drain"
-    cod = 'LAG'
+    code = 'LAG'
     unité = 'hrs'
 
 
 class RayonDraines(VarRéel):
     nom = "Rayon effectif des drains"
-    cod = 'RAD'
+    code = 'RAD'
     unité = 'mm'
 
 
 class DistanceTuiles(VarRéel):
     nom = "Distance entre deux tuyaux de drainage ou tuiles"
-    cod = 'DIST'
+    code = 'DIST'
     unité = 'mm'
 
 
 class CoeffDrain(VarRéel):
     nom = "Coefficient de drainage"
-    cod = 'DRAIN'
+    code = 'DRAIN'
     unité = 'mm/day'
 
 
 class CapPompe(VarRéel):
     nom = "Capacité de la pompe"
-    cod = 'PUMP'
+    code = 'PUMP'
     unité = 'mm/hr'
 
 
 class FacteurMulti(VarRéel):
     nom = "Facteur de multiplication pour déterminer la constante de saturation latérale à partir de la valeur " \
           "d'entrée de constante de saturation SWAT "
-    cod = 'LAT_KSAT'
+    code = 'LAT_KSAT'
 
 
 vars_ = [Nom, ProfondTube, TempDrainer, TempLatence, RayonDraines, DistanceTuiles, CoeffDrain, CapPompe, FacteurMulti]
 
+
+class DivisionDrainesDeTuiles(Division):
+    variables = vars_
+
+
 class Drainesdestuiles(Fichier):
     nom = 'tiledrain.str'
-    variables = vars_
+    division = DivisionDrainesDeTuiles

@@ -1,27 +1,28 @@
+from swatpyplus.div import Division
 from swatpyplus.fichier import Fichier
 from swatpyplus.variables import VarEntier, VarTexte, VarRéel
 
 
 class Nom(VarTexte):
     nom = 'Nom'
-    cod = 'name'
+    code = 'NAME'
 
 
 class LongChamp(VarRéel):
     nom = 'longueur du champ'
-    cod = 'LEN'
+    code = 'LEN'
     unité = 'm'
 
 
 class LargChamp(VarRéel):
     nom = 'largeur du champ'
-    cod = 'WD'
+    code = 'WD'
     unité = 'm'
 
 
 class AngChamp(VarRéel):
     nom = 'Angle du champ'
-    cod = 'ANG'
+    code = 'ANG'
     unité = 'deg'
 
 
@@ -29,7 +30,11 @@ vars_ = [
     Nom, LongChamp, LargChamp, AngChamp
 ]
 
-class Champs(Fichier):
-    nom = 'field.fld'
+
+class DivisionChamps(Division):
     variables = vars_
 
+
+class Champs(Fichier):
+    nom = 'field.fld'
+    division = DivisionChamps
